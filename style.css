@@ -172,3 +172,40 @@ label svg:nth-of-type(1) {
 :checked ~ label svg:nth-of-type(2) {
   display: none;
 }
+/* Animated Gradient Background */
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating Balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  background: red;
+  border-radius: 50% 50% 45% 45%;
+  animation: floatUp 10s linear infinite;
+}
+.balloon:before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #333;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-110vh) scale(0.7); opacity: 0; }
+}
