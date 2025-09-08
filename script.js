@@ -254,3 +254,27 @@ const toggleAudio = () => {
 };
 
 document.querySelector('#volume').addEventListener('input', toggleAudio);
+// 🎈 Balloons generator
+function createBalloon() {
+  const colors = ["#ff4b5c", "#ffb400", "#3ac569", "#00bbf0", "#ff66b3"];
+  const balloon = document.createElement("div");
+  balloon.classList.add("balloon");
+  balloon.style.left = Math.random() * 100 + "vw";
+  balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+  balloon.style.animationDuration = (6 + Math.random() * 5) + "s";
+  document.getElementById("balloons").appendChild(balloon);
+
+  setTimeout(() => {
+    balloon.remove();
+  }, 12000);
+}
+setInterval(createBalloon, 1000);
+
+// 🎉 Confetti on button click
+BTN.addEventListener("click", () => {
+  confetti({
+    particleCount: 200,
+    spread: 120,
+    origin: { y: 0.6 }
+  });
+});
